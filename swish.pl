@@ -42,15 +42,22 @@ iniciar :-
 	writeln('Obrigado por responder'), nl, 
 	seu_resultado.
 
+
 iniciar_questionario :-
-    forall(pergunta(_, Texto, Disciplina),
+    forall(pergunta(ID, Texto, Disciplina),
            (
-               format('~w (s/n): ', [Texto]),
-               read_line_to_string(user_input, R),
-               (member(R, ["s","sim"]) ->
-                    forall(perfil(Trilha, Disciplina, Peso),
-                           assertz(ponto(Trilha, Peso)))
-               ; true),
+               % COMENTADO PARA TESTE MANUAL!!
+               % PARA TESTAR OS EXEMPLOS, BASTA COMENTAR A LINHA INDICADA!!
+               % (resposta(ID, R) -> true
+               % ; format('~w (s/n): ', [Texto]), read_line_to_string(user_input, R)),
+
+               % COMENTE A LINHA ABAIXO PARA TESTAR O MODO DE EXEMPLOS:
+               format('~w (s/n): ', [Texto]), read_line_to_string(user_input, R),
+
+               ( member(R, ["s","sim"]) ->
+                     forall(perfil(Trilha, Disciplina, Peso),
+                            assertz(ponto(Trilha, Peso)))
+               ; true ),
                nl
            )
     ).
