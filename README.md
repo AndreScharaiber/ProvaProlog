@@ -29,5 +29,6 @@ O sistema pode ser usado:
 2. Carregue o código: swish.pl
 3. Use o comando: ?-iniciar
 4. Responda o formulário e receba sua resposta
+5. Para usar o modo com exemplo, basta descomentar as linhas indicadas, e comentar a linha indicada.
 
 
